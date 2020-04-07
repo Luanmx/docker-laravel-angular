@@ -1,0 +1,35 @@
+version: '3'
+services:
+  frontend:
+   container_name: notimarrisweb
+   image: ngxang-luandev
+   build: .
+   ports:
+   - 8080:80
+   volumes:
+   - ./project/frontend/dist:/usr/share/nginx/html/frontend/
+   - ./nginx-config/default.conf:/etc/nginx/conf.d/default.conf
+  backend:
+   container_name: notimarrisapi
+   image: joselfonsecadt/nginx-php7.3:latest
+   volumes:
+   - ./project/backend:/var/www/html
+   links:
+     - db
+     - redis
+   ports:
+   - 9000:80
+  db:
+   container_name: notimarrisdb
+   image: mysql:5.7
+   environment:
+     MYSQL_ROOT_PASSWORD: marrisapp
+     MYSQL_DATABASE: marrisdb
+   ports:
+    - 3306:3306
+   volumes:
+    - ./project/data:/var/lib/mysql
+  redis:
+   image: redis:5-alpine
+   ports:
+    - 6379:6379
