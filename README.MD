@@ -58,3 +58,8 @@ y cambiar el CACHE_DRIVER, SESSION_DRIVER y  por : <br/>
 
 En caso de fallar recuerda instalar predis/predis    <br/>
 `composer require predis/predis`
+
+para verificar que todo se cargo correctamente ingresar para  frontend <br>
+http://localhost:8080 <br>
+para el backend <br>
+http://localhost:9000 
