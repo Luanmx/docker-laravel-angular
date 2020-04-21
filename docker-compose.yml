@@ -11,7 +11,7 @@ services:
    - ./nginx-config/default.conf:/etc/nginx/conf.d/default.conf
   backend:
    container_name: notimarrisapi
-   image: joselfonsecadt/nginx-php7.3:latest
+   image: joselfonsecadt/nginx-php7.3-dev:latest
    volumes:
    - ./project/backend:/var/www/html
    links:
